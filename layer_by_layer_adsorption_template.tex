@@ -1,0 +1,351 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+
+\sisetup{
+  detect-all,
+  round-mode = places,
+  round-precision = 2,
+  group-separator = {,},
+  group-minimum-digits = 4
+}
+
+\title{Layer-by-Layer Adsorption of Cyclodextrin Derivatives on Halloysite Nanotubes:\\
+Protocol-Level Calibration, Coarse-Grained Mapping, and Simulation Placeholders}
+\author{}
+\date{\today}
+
+% ----------------------------
+% Plot placeholder macros
+% ----------------------------
+\newcommand{\plotplaceholder}[2]{%
+\begin{figure}[H]
+    \centering
+    \IfFileExists{#1}{%
+        \includegraphics[width=0.84\textwidth]{#1}
+    }{%
+        \fbox{%
+            \parbox[c][0.27\textheight][c]{0.80\textwidth}{%
+                \centering
+                \textbf{Placeholder for simulation plot}\\[0.5em]
+                \texttt{#1}
+            }%
+        }%
+    }
+    \caption{#2}
+    \label{fig:#1}
+\end{figure}
+}
+
+\newcommand{\subfigplaceholder}[2]{%
+\begin{subfigure}[b]{0.47\textwidth}
+    \centering
+    \IfFileExists{#1}{%
+        \includegraphics[width=\textwidth]{#1}
+    }{%
+        \fbox{%
+            \parbox[c][0.22\textheight][c]{0.92\textwidth}{%
+                \centering
+                \textbf{Placeholder}\\
+                \texttt{#1}
+            }%
+        }%
+    }
+    \caption{#2}
+\end{subfigure}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A protocol-level calibration is presented for the electrostatic layer-by-layer (LbL) adsorption of oppositely charged cyclodextrin derivatives, CD-S-NH$_3^+$ and CD-S-COO$^-$, onto halloysite nanotubes (HNTs). The calibration uses experimental HNT dimensions, NaCl concentration, zeta-potential alternation, and hydrodynamic diameter progression to define effective coarse-grained electrostatic targets. Because LbL assembly requires alternating charge reversal, the calibration enforces physical consistency with the established negative outer surface of HNTs over the relevant pH range. Tables are provided for effective surface charge states, retained adsorbed charge after washing, inferred molecule counts, and hydrodynamic size progression. Placeholders are also included for simulation plots from protocol-level and Brownian/coarse-grained models.
+\end{abstract}
+
+\section{Introduction}
+Halloysite nanotubes are aluminosilicate nanocylinders with a negatively charged outer silica-rich surface and a positively charged inner lumen over a broad aqueous pH range relevant to LbL assembly \citep{Veerabadran2009,Cavallaro2020}. Their tubular morphology and differential surface chemistry make them suitable templates for electrostatic multilayer deposition. In the present case, the deposited species alternate between positively charged CD-S-NH$_3^+$ and negatively charged CD-S-COO$^-$. Charge reversal after each adsorption/wash step is a defining requirement of electrostatic LbL buildup.
+
+The objective here is not an atomistically resolved model, but a calibrated protocol-level and coarse-grained framework tied to the available experimental observables: HNT geometry, salt concentration, zeta-potential alternation, and hydrodynamic diameter progression.
+
+\section{Experimental Inputs and Physical Assumptions}
+
+\subsection{Experimental inputs}
+\begin{table}[H]
+\centering
+\caption{Experimental inputs used for calibration.}
+\begin{tabular}{ll}
+\toprule
+Quantity & Value \\
+\midrule
+HNT length, $L$ & \SI{1000}{nm} \\
+HNT radius, $R$ & \SI{25}{nm} \\
+HNT outer diameter & \SI{50}{nm} \\
+NaCl concentration & \SI{0.1}{M} \\
+Measured zeta potentials (as provided) & $(+69.3,\,-53.7,\,+42.4,\,-50.4,\,+57.6)$ mV \\
+Measured hydrodynamic diameters & $(269,\;395,\;489,\;561,\;629)$ nm \\
+\bottomrule
+\end{tabular}
+\label{tab:inputs}
+\end{table}
+
+\subsection{Physical consistency of the sign sequence}
+The outer surface of HNTs is expected to be negative under the relevant aqueous conditions \citep{Veerabadran2009,Cavallaro2020}. Therefore, to maintain electrostatic consistency with the LbL sequence
+\[
+\mathrm{HNT}^{-} \rightarrow \mathrm{CD\mbox{-}S\mbox{-}NH_3^+} \rightarrow \mathrm{CD\mbox{-}S\mbox{-}COO^-} \rightarrow \mathrm{CD\mbox{-}S\mbox{-}NH_3^+} \rightarrow \mathrm{CD\mbox{-}S\mbox{-}COO^-},
+\]
+the calibration uses the measured zeta-potential magnitudes but imposes the sign sequence
+\[
+(-,\; +,\; -,\; +,\; -).
+\]
+Thus, the zeta potentials used below are
+\[
+(-69.3,\; +53.7,\; -42.4,\; +50.4,\; -57.6)\;\mathrm{mV}.
+\]
+
+\subsection{Derived geometry and screening}
+The outer cylindrical area is
+\[
+A = 2\pi R L = 2\pi(25)(1000) \approx \SI{157079.6}{nm^2}.
+\]
+For \SI{0.1}{M} monovalent electrolyte in water at room temperature, the Debye length is approximated by
+\[
+\lambda_D \approx \frac{0.304}{\sqrt{I}} \approx \SI{0.96}{nm},
+\]
+consistent with standard Debye screening in aqueous electrolyte.
+
+\section{Electrostatic Calibration}
+
+\subsection{Effective surface charge states}
+An effective surface charge density was mapped from zeta potential using a Grahame-equation-based proxy for a 1:1 electrolyte. This is an effective calibration quantity rather than a direct microscopic surface charge measurement.
+
+\begin{table}[H]
+\centering
+\caption{Calibrated electrostatic states for the HNT/LbL sequence.}
+\begin{tabular}{l
+                S[table-format=2.1]
+                S[table-format=1.3]
+                S[table-format=6.0]}
+\toprule
+State & {$\zeta_{\mathrm{used}}$ (mV)} & {$\sigma_{\mathrm{eff}}$ (e/nm$^2$)} & {$Q_{\mathrm{total}}$ (e)} \\
+\midrule
+Pristine HNT & -69.3 & -0.418 & -65700 \\
+After layer 1 & 53.7 & 0.289 & 45400 \\
+After layer 2 & -42.4 & -0.192 & -30200 \\
+After layer 3 & 50.4 & 0.266 & 41800 \\
+After layer 4 & -57.6 & -0.319 & -50100 \\
+\bottomrule
+\end{tabular}
+\label{tab:electrostatic_states}
+\end{table}
+
+\subsection{Retained adsorbed charge after each wash}
+Charge reversal requires retained adsorption after washing that not only neutralizes the previous surface state, but also overcompensates it to reverse the sign.
+
+\begin{table}[H]
+\centering
+\caption{Retained adsorbed charge required for post-wash charge reversal / overcompensation.}
+\begin{tabular}{l l S[table-format=6.0]}
+\toprule
+Layer & Transition & {$\Delta Q_{\mathrm{retained}}$ (e)} \\
+\midrule
+1 & HNT $\rightarrow$ CD-S-NH$_3^+$ & 111100 \\
+2 & Layer 1 $\rightarrow$ CD-S-COO$^-$ & -75600 \\
+3 & Layer 2 $\rightarrow$ CD-S-NH$_3^+$ & 72000 \\
+4 & Layer 3 $\rightarrow$ CD-S-COO$^-$ & -91900 \\
+\bottomrule
+\end{tabular}
+\label{tab:retained_charge}
+\end{table}
+
+\subsection{Retained molecule counts}
+For pH 5, a high protonation degree is assumed for the cationic derivative:
+\[
+\alpha_{\mathrm{NH_3}} = 0.95.
+\]
+The ionization fraction of CD-S-COO$^-$ at pH 5 remains an explicit input parameter:
+\[
+\alpha_{\mathrm{COO}} \;\; \text{not supplied}.
+\]
+
+\begin{table}[H]
+\centering
+\caption{Retained molecule counts implied by the calibrated electrostatic targets.}
+\begin{tabular}{l l l}
+\toprule
+Layer & Depositing species & Retained molecule count \\
+\midrule
+1 & CD-S-NH$_3^+$ & $\dfrac{111100}{\alpha_{\mathrm{NH_3}}} \approx 116900$ for $\alpha_{\mathrm{NH_3}}=0.95$ \\
+2 & CD-S-COO$^-$ & $\dfrac{75600}{\alpha_{\mathrm{COO}}}$ \\
+3 & CD-S-NH$_3^+$ & $\dfrac{72000}{\alpha_{\mathrm{NH_3}}} \approx 75800$ for $\alpha_{\mathrm{NH_3}}=0.95$ \\
+4 & CD-S-COO$^-$ & $\dfrac{91900}{\alpha_{\mathrm{COO}}}$ \\
+\bottomrule
+\end{tabular}
+\label{tab:molecule_counts}
+\end{table}
+
+\section{Hydrodynamic Diameter Progression}
+
+\begin{table}[H]
+\centering
+\caption{Measured hydrodynamic diameter progression and incremental changes.}
+\begin{tabular}{l
+                S[table-format=3.0]
+                S[table-format=3.0]
+                S[table-format=2.0]}
+\toprule
+State & {$D_h$ (nm)} & {$\Delta D_h$ (nm)} & {Radial increment (nm)} \\
+\midrule
+Pristine HNT & 269 & {} & {} \\
+After layer 1 & 395 & 126 & 63 \\
+After layer 2 & 489 & 94 & 47 \\
+After layer 3 & 561 & 72 & 36 \\
+After layer 4 & 629 & 68 & 34 \\
+\bottomrule
+\end{tabular}
+\label{tab:dls}
+\end{table}
+
+\noindent
+These increments are substantially larger than a literal adsorbed molecular shell thickness on an isolated \SI{50}{nm} HNT. Therefore, the DLS values should be treated as hydrodynamic observables that may include contributions from hydration and interparticle association, not as direct dry-shell thicknesses.
+
+\section{Suggested Coarse-Grained Parameterization}
+
+\begin{table}[H]
+\centering
+\caption{Suggested coarse-grained simulation parameters for Brownian/coarse-grained adsorption modeling.}
+\begin{tabular}{ll}
+\toprule
+Parameter & Suggested value \\
+\midrule
+Surface representation & Local flat HNT patch \\
+Patch size & \SI{40 x 40}{nm^2} \\
+Electrostatics & Debye--H\"uckel / Yukawa \\
+Debye length, $\lambda_D$ & \SI{0.96}{nm} \\
+Bjerrum length, $\lambda_B$ & \SI{0.714}{nm} \\
+Excluded volume & WCA potential \\
+Coarse-grained bead diameter & \SI{4.0}{nm} \\
+Mapping & 1 bead = 10 CD molecules \\
+CD-S-NH$_3^+$ bead charge at pH 5 & $+9.5e$ \\
+CD-S-COO$^-$ bead charge & $-10\alpha_{\mathrm{COO}}e$ \\
+Layer sequence & NH$_3^+$, COO$^-$, NH$_3^+$, COO$^-$ \\
+\bottomrule
+\end{tabular}
+\label{tab:cg_params}
+\end{table}
+
+\section{Layer-by-Layer Simulation Protocol Figure}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance = 8mm and 8mm,
+    step/.style={
+      rectangle,
+      rounded corners,
+      draw=black,
+      align=center,
+      minimum width=3.1cm,
+      minimum height=1.1cm,
+      fill=blue!5
+    },
+    decision/.style={
+      diamond,
+      draw=black,
+      aspect=2.0,
+      align=center,
+      inner sep=1pt,
+      fill=orange!10,
+      text width=2.8cm
+    },
+    arrow/.style={-{Latex[length=2.2mm]},thick}
+]
+
+\node[step] (init) {Initialize HNT surface\\$\zeta_0=-69.3$ mV};
+\node[step, right=of init] (l1) {Deposit layer 1\\CD-S-NH$_3^+$};
+\node[decision, below=of l1] (wash1) {Wash + relax\\to post-wash state};
+\node[step, right=of l1] (l2) {Deposit layer 2\\CD-S-COO$^-$};
+\node[decision, below=of l2] (wash2) {Wash + relax\\to post-wash state};
+\node[step, right=of l2] (l3) {Deposit layer 3\\CD-S-NH$_3^+$};
+\node[decision, below=of l3] (wash3) {Wash + relax\\to post-wash state};
+\node[step, right=of l3] (l4) {Deposit layer 4\\CD-S-COO$^-$};
+\node[decision, below=of l4] (wash4) {Wash + relax\\to post-wash state};
+\node[step, below=of wash2, yshift=-8mm, fill=green!8] (check) {Evaluate outputs\\$\zeta$ alternation, $Q_\mathrm{retained}$, $D_h$ proxy};
+
+\draw[arrow] (init) -- (l1);
+\draw[arrow] (l1) -- (l2);
+\draw[arrow] (l2) -- (l3);
+\draw[arrow] (l3) -- (l4);
+
+\draw[arrow] (l1) -- (wash1);
+\draw[arrow] (l2) -- (wash2);
+\draw[arrow] (l3) -- (wash3);
+\draw[arrow] (l4) -- (wash4);
+
+\draw[arrow] (wash1.south) |- (check.west);
+\draw[arrow] (wash2) -- (check);
+\draw[arrow] (wash3.south) |- (check.east);
+\draw[arrow] (wash4.south) |- (check.east);
+
+\end{tikzpicture}
+\caption{Layer-by-layer simulation protocol for alternating adsorption and post-wash charge-reversal calibration. Each deposition step is followed by a wash/relaxation phase, and model outputs are compared to target zeta-potential alternation, retained charge, and hydrodynamic trends.}
+\label{fig:lbl_protocol}
+\end{figure}
+
+\section{Simulation Plot Placeholders}
+
+\subsection{Charge evolution}
+\plotplaceholder{figures/charge_evolution.pdf}
+{Net surface charge evolution across the four LbL deposition steps. The expected trend is alternating post-wash charge reversal, which is a defining feature of electrostatic LbL buildup.}
+
+\subsection{Layer-resolved adsorption maps}
+\begin{figure}[H]
+\centering
+\subfigplaceholder{figures/layer1_adsorption_map.pdf}{Adsorption map after layer 1.}
+\hfill
+\subfigplaceholder{figures/layer2_adsorption_map.pdf}{Adsorption map after layer 2.}
+
+\vspace{1em}
+
+\subfigplaceholder{figures/layer3_adsorption_map.pdf}{Adsorption map after layer 3.}
+\hfill
+\subfigplaceholder{figures/layer4_adsorption_map.pdf}{Adsorption map after layer 4.}
+\caption{Placeholders for coarse-grained adsorption maps on the local HNT surface patch.}
+\label{fig:adsorption_maps}
+\end{figure}
+
+\subsection{Hydrodynamic diameter comparison}
+\plotplaceholder{figures/dls_growth_comparison.pdf}
+{Comparison of measured hydrodynamic diameter progression with a simulation-derived proxy observable, if such a proxy is defined.}
+
+\subsection{Representative coarse-grained snapshot}
+\plotplaceholder{figures/hnt_patch_snapshot.pdf}
+{Representative coarse-grained snapshot of the HNT surface patch and adsorbed charged cyclodextrin beads.}
+
+\section{Discussion}
+The present calibration is constrained by the experimental HNT dimensions, salt concentration, zeta-potential alternation, and hydrodynamic size progression. The electrostatic calibration is sufficient to define target post-wash charge states and retained adsorbed charge per layer. By contrast, the DLS size increments are too large to be interpreted as a literal single-particle shell thickness, indicating that any quantitative reproduction of the hydrodynamic diameter likely requires an additional aggregation or cluster-hydrodynamics component.
+
+At fixed \SI{0.1}{M} NaCl, the Debye length remains close to \SI{0.96}{nm} across pH 5--9 because the ionic strength is dominated by the salt rather than by H$^+$ or OH$^-$. Therefore, the main pH dependence in the coarse-grained model should enter through the ionization fractions of the adsorbing species rather than by changing the Debye length.
+
+\section{Conclusion}
+This manuscript template provides an Overleaf-ready framework for reporting a protocol-level calibration of LbL adsorption on HNTs and for inserting simulation outputs from coarse-grained adsorption models. The tables define the experimentally constrained electrostatic targets, while the figure placeholders allow direct integration of charge-evolution plots, adsorption maps, and hydrodynamic comparisons.
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}
