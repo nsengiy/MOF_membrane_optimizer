@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="700" viewBox="0 0 1600 700">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#000"/>
+    </marker>
+    <style>
+      .box { fill:#eaf3ff; stroke:#000; stroke-width:2; }
+      .diamond { fill:#fff2df; stroke:#000; stroke-width:2; }
+      .check { fill:#e9fbe9; stroke:#000; stroke-width:2; }
+      .txt { font-family: Arial, sans-serif; font-size: 18px; text-anchor: middle; dominant-baseline: middle; }
+      .small { font-size:16px; }
+      .arrow { stroke:#000; stroke-width:2.5; fill:none; marker-end:url(#arrow); }
+      .title { font-family: Arial, sans-serif; font-size: 28px; font-weight:600; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <text x="800" y="45" class="title">Layer-by-Layer Simulation Protocol (Preview)</text>
+
+  <rect x="30" y="80" rx="16" ry="16" width="240" height="100" class="box"/>
+  <rect x="330" y="80" rx="16" ry="16" width="240" height="100" class="box"/>
+  <rect x="630" y="80" rx="16" ry="16" width="240" height="100" class="box"/>
+  <rect x="930" y="80" rx="16" ry="16" width="240" height="100" class="box"/>
+  <rect x="1230" y="80" rx="16" ry="16" width="240" height="100" class="box"/>
+
+  <text x="150" y="120" class="txt small">Initialize HNT surface</text>
+  <text x="150" y="145" class="txt small">ζ₀ = -69.3 mV</text>
+
+  <text x="450" y="120" class="txt small">Deposit layer 1</text>
+  <text x="450" y="145" class="txt small">CD-S-NH₃⁺</text>
+
+  <text x="750" y="120" class="txt small">Deposit layer 2</text>
+  <text x="750" y="145" class="txt small">CD-S-COO⁻</text>
+
+  <text x="1050" y="120" class="txt small">Deposit layer 3</text>
+  <text x="1050" y="145" class="txt small">CD-S-NH₃⁺</text>
+
+  <text x="1350" y="120" class="txt small">Deposit layer 4</text>
+  <text x="1350" y="145" class="txt small">CD-S-COO⁻</text>
+
+  <polygon points="450,250 560,310 450,370 340,310" class="diamond"/>
+  <polygon points="750,250 860,310 750,370 640,310" class="diamond"/>
+  <polygon points="1050,250 1160,310 1050,370 940,310" class="diamond"/>
+  <polygon points="1350,250 1460,310 1350,370 1240,310" class="diamond"/>
+
+  <text x="450" y="295" class="txt small">Wash + relax</text>
+  <text x="450" y="320" class="txt small">to post-wash state</text>
+  <text x="750" y="295" class="txt small">Wash + relax</text>
+  <text x="750" y="320" class="txt small">to post-wash state</text>
+  <text x="1050" y="295" class="txt small">Wash + relax</text>
+  <text x="1050" y="320" class="txt small">to post-wash state</text>
+  <text x="1350" y="295" class="txt small">Wash + relax</text>
+  <text x="1350" y="320" class="txt small">to post-wash state</text>
+
+  <rect x="620" y="500" rx="16" ry="16" width="360" height="120" class="check"/>
+  <text x="800" y="540" class="txt small">Evaluate outputs</text>
+  <text x="800" y="565" class="txt small">ζ alternation, Q_retained, Dₕ proxy</text>
+
+  <line x1="270" y1="130" x2="330" y2="130" class="arrow"/>
+  <line x1="570" y1="130" x2="630" y2="130" class="arrow"/>
+  <line x1="870" y1="130" x2="930" y2="130" class="arrow"/>
+  <line x1="1170" y1="130" x2="1230" y2="130" class="arrow"/>
+
+  <line x1="450" y1="180" x2="450" y2="250" class="arrow"/>
+  <line x1="750" y1="180" x2="750" y2="250" class="arrow"/>
+  <line x1="1050" y1="180" x2="1050" y2="250" class="arrow"/>
+  <line x1="1350" y1="180" x2="1350" y2="250" class="arrow"/>
+
+  <line x1="450" y1="370" x2="680" y2="500" class="arrow"/>
+  <line x1="750" y1="370" x2="800" y2="500" class="arrow"/>
+  <line x1="1050" y1="370" x2="920" y2="500" class="arrow"/>
+  <line x1="1350" y1="370" x2="980" y2="530" class="arrow"/>
+</svg>
